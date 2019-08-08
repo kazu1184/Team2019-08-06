@@ -22,6 +22,6 @@ public class CameraContoroller : MonoBehaviour
         float Y_Rotation = Input.GetAxis("Mouse Y");
 
         verRot.transform.Rotate(0, X_Rotation, 0);
-        horRot.transform.Rotate(-Y_Rotation, 0, 0);
+        horRot.transform.Rotate(-Y_Rotation * 2, 0, 0);
     }
 }
