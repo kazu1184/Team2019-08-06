@@ -19,6 +19,7 @@ public class RoboController : MonoBehaviour
         // 持ち主でないのなら制御させない
         if (!m_photonView.IsMine)
         {
+            Debug.Log("yes");
             return;
         }
 
