@@ -30,7 +30,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         // マッチング後、ランダムな位置に自分自身のネットワークオブジェクトを生成する
-        var v = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        PhotonNetwork.Instantiate("GamePlayer", v, Quaternion.identity);
+        var v = new Vector3(0,1,0);
+        PhotonNetwork.Instantiate("SciFiWarriorHP", v, Quaternion.identity);
     }
 }
