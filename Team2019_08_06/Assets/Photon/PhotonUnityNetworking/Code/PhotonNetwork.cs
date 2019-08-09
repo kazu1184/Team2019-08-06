@@ -2488,6 +2488,7 @@ namespace Photon.Pun
 
         private static readonly Hashtable SendInstantiateEvHashtable = new Hashtable();                             // SendInstantiate reuses this to reduce GC
         private static readonly RaiseEventOptions SendInstantiateRaiseEventOptions = new RaiseEventOptions();       // SendInstantiate reuses this to reduce GC
+        public static object logLevel;
 
         internal static bool SendInstantiate(Pun.InstantiateParameters parameters, bool sceneObject = false)
         {
