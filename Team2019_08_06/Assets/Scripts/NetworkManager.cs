@@ -7,9 +7,15 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    GameObject m_camera;
+    [SerializeField]
+    Vector3 m_cameraPos;
     // Start is called before the first frame update
     void Start()
     {
+        m_camera = GameObject.FindWithTag("MainCamera");
+        m_camera.GetComponent<CameraContoroller>().enabled = false;
+
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -31,6 +37,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         // マッチング後、ランダムな位置に自分自身のネットワークオブジェクトを生成する
         var v = new Vector3(0,1,0);
-        PhotonNetwork.Instantiate("SciFiWarriorHP", v, Quaternion.identity);
+        GameObject avatar = PhotonNetwork.Instantiate("SciFiWarriorHP", v, Quaternion.identity);
+
+        m_camera.transform.parent = avatar.transform;
+        m_camera.transform.position = m_cameraPos;
+
+        CameraContoroller temp = m_camera.GetComponent<CameraContoroller>();
+        temp.enabled = true;
+        temp.InData();
     }
 }
